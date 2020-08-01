@@ -35,13 +35,15 @@ class GregUtils():
         print(f"\nP_value is approximately {p_value:0.4f}\n")
 
         if p_value < self.target_p:
-            print(f"We can not assume that the difference in means is just random, and must assume that the mean of the")
-            print(f"sample is representative of this run mean production time.  Assume that the next {self.hours} hours")
+            print(f"We can not assume that the difference in means is just random, and must ")
+            print("assume that the mean of the sample is representative of this run's mean")
+            print("production time.  Assume that the next {self.hours} hours")
             print(f"will produce {60*self.hours/np.mean(self.short_run):.0f} parts")
 
         else:
-            print(f"The difference in means could be completely random, so we should assume that the mean of the")
-            print(f"historical sample is representative of this run mean production time.  Assume that the next {self.hours} hours")
+            print(f"We assume that the difference in means is just random, and must ")
+            print("assume that the mean of the history is representative of this run's")
+            print("eventual mean production time.  Assume that the next {self.hours} hours")
             print(f"will produce {60*self.hours/np.mean(self.long_run):.0f} parts")
 
         return
