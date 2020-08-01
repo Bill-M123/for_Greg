@@ -63,11 +63,11 @@ class GregUtils():
         self.target_p = target_p
         self.hours = hours
 
-        indy=['# Samples','Mean','Sigma']
+        indy=['# Samples','Mean','Sdev']
 
         df=pd.DataFrame(index=indy)
-        df['History'] = [self.lr_num_sam,self.lr_mu,self.lr_sig]
-        df['Current Lot'] = [self.sr_num_sam,self.sr_mu,self.sr_sig]
+        df['History'] = [self.lr_num_sam,round(np.mean(self.long_run),2),round(np.std(self.long_run),2)]
+        df['Current Lot'] = [self.sr_num_sam,round(np.mean(self.short_run),2),round(np.std(self.short_run),2)]
 
         self.make_ref_plot()
         print(df)
